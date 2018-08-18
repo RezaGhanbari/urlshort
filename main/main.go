@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"urlshort"
-)
+	)
 func main() {
 	mux := defaultMux()
 	pathsToUrls := map[string]string {
@@ -14,9 +14,9 @@ func main() {
 	mapHandler := urlshort.MapHandler(pathsToUrls, mux)
 	yaml := `
 - path: /urlshort
- url: https://github.com/gophercises/urlshort
+  url: https://github.com/gophercises/urlshort
 - path: /urlshort-final
- url: https://github.com/gophercises/urlshort/tree/solution
+  url: https://github.com/gophercises/urlshort/tree/solution
 `
 	yamlHandler, err := urlshort.YAMLHandler([]byte(yaml), mapHandler)
 	if err != nil {
@@ -33,5 +33,5 @@ func defaultMux() *http.ServeMux {
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello")
+	fmt.Fprintln(w, "Main")
 }
